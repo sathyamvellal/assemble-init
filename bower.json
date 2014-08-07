@@ -1,6 +1,5 @@
 {
     "name": "assemble-init",
     "dependencies": {
-        "components-bootstrap": "~3.2.0"
     }
 }

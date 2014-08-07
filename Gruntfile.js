@@ -85,6 +85,13 @@ module.exports = function (grunt) {
                 files: '<%= config.src %>/less/**',
                 tasks: ['less']
             }
+        },
+        bower: {
+            install: {
+                options: {
+                    targetDir: '<%= config.src %>/components'
+                }
+            }
         }
     });
 
@@ -92,9 +99,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('assemble');
 
+    grunt.registerTask('init', ['bower:install']);
     grunt.registerTask('generate', ['assemble', 'less', 'copy']);
     grunt.registerTask('build', ['clean', 'generate']);
     grunt.registerTask('default', ['clean', 'build', 'watch']);
