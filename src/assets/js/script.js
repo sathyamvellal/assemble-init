@@ -1,1 +1,1 @@
-alert('Hi, from the script!');
+console.log('Hi, from the script!');
