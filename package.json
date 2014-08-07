@@ -1,6 +1,6 @@
 {
   "name": "websandbox",
-  "version": "1.0",
+  "version": "v0.1.0",
   "description": "Web design sandbox",
   "author": "Sathyam Vellal",
   "main": "index.js",
