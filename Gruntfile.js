@@ -50,12 +50,12 @@ module.exports = function (grunt) {
                 }]
             }
         },
-        sass: {
-            dist: {
+        less: {
+            main: {
                 files: [{
                     expand: true,
-                    cwd: '<%= config.src %>/sass/',
-                    src: ['*.scss'],
+                    cwd: '<%= config.src %>/less/',
+                    src: ['*.less'],
                     dest: '<%= config.dist  %>/assets/css/',
                     ext: '.css'
                 }]
@@ -82,8 +82,8 @@ module.exports = function (grunt) {
                 tasks: ['newer:copy']
             },
             styles: {
-                files: '<%= config.src %>/sass/**',
-                tasks: ['sass']
+                files: '<%= config.src %>/less/**',
+                tasks: ['less']
             }
         }
     });
@@ -91,11 +91,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('assemble');
 
-    grunt.registerTask('generate', ['assemble', 'sass', 'copy']);
+    grunt.registerTask('generate', ['assemble', 'less', 'copy']);
     grunt.registerTask('build', ['clean', 'generate']);
     grunt.registerTask('default', ['clean', 'build', 'watch']);
 };
